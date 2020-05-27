@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
                 for (int i = textInput.length() - 1; i >= 0; i--) {
                     sb.append(textInput.charAt(i));
                 }
-
                 tView.setText(sb);
             }
         });
