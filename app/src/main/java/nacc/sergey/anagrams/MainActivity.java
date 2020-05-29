@@ -1,7 +1,9 @@
 package nacc.sergey.anagrams;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,17 +24,18 @@ public class MainActivity extends AppCompatActivity {
         btnText = findViewById(R.id.btnPress);
 
         btnText.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View v) {
                 String textInput = eText.getText().toString();
 
-                StringBuilder sb = new StringBuilder();
+                char[] charArray = textInput.toCharArray();
 
-                for (int i = textInput.length() - 1; i >= 0; i--) {
-                    sb.append(textInput.charAt(i));
+                String resultString = "";
+                for (int i = charArray.length - 1; i >= 0; i--) {
+                    resultString += charArray[i];
                 }
-                tView.setText(sb);
-
+                tView.setText(resultString);
             }
         });
 
